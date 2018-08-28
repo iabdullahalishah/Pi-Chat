@@ -115,9 +115,6 @@ func formatCallTime(date: Date) -> String {
     return elapsed!
 }
 
-
-
-
 //MARK: UIImageExtension
 
 extension UIImage {

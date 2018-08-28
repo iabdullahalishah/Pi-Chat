@@ -173,7 +173,6 @@ class FUser {
     }
     
     
-    
     //MARK: Login function
     
     class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?) -> Void) {

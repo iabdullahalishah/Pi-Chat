@@ -79,7 +79,7 @@ class FinishRegisterationViewController: UIViewController {
             kFIRSTNAME : nameTextField.text!,
             kLASTNAME : surnameTextField.text!,
             kFULLNAME : fullName,
-            kCOUNTER : countryTextField.text!,
+            kCOUNTRY : countryTextField.text!,
             kCITY : cityTextField.text!,
             kPHONE : phoneTextField.text!
         ] as [String : Any]
@@ -87,7 +87,7 @@ class FinishRegisterationViewController: UIViewController {
         if avatarImage == nil {
             imageFromInitials(firstName: nameTextField.text, lastName: surnameTextField.text) { (avatarInitials) in
                 let avatarIMG = UIImageJPEGRepresentation(avatarInitials, 0.7)
-                let avatar = avatarIMG!.base64EncodedData(options: NSData.Base64EncodingOptions(rawValue: 0))
+                let avatar = avatarIMG!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
                 tempDictionary[kAVATAR] = avatar
                 self.finishRegistration(withValues: tempDictionary)
             }
@@ -109,7 +109,16 @@ class FinishRegisterationViewController: UIViewController {
             }
             ProgressHUD.dismiss()
             // Go to app
+            self.goToApp()
         }
+    }
+    
+    func goToApp() {
+        cleanTextFields()
+        dismissKeyboard()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: USER_DID_LOGIN_NOTIFICATION), object: nil, userInfo: [kUSERID  : FUser.currentId()])
+        let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController
+        self.present(mainView, animated: true, completion: nil)
     }
     
 }

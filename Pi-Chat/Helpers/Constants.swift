@@ -17,16 +17,12 @@ let userDefaults = UserDefaults.standard
 public let USER_DID_LOGIN_NOTIFICATION = "UserDidLoginNotification"
 public let APP_STARTED_NOTIFICATION = "AppStartedNotification"
 
-
-
 //IDS and Keys
 public let kFILEREFERENCE = ""
 public let kONESIGNALAPPID = ""
 public let kSINCHKEY = ""
 public let kSINCHSECRET = ""
 public let kAPPURL = ""
-
-
 
 //Firebase Headers
 public let kUSER_PATH = "User"
@@ -56,8 +52,6 @@ public let kVERIFICATIONCODE = "firebase_verification"
 public let kCITY = "city"
 public let kCOUNTRY = "country"
 public let kBLOCKEDUSERID = "blockedUserId"
-
-
 
 //
 public let kBACKGROUBNDIMAGE = "backgroundImage"
@@ -110,22 +104,16 @@ public let kLOCATION = "location"
 public let kLATITUDE = "latitude"
 public let kLONGITUDE = "longitude"
 
-
 //message status
 public let kDELIVERED = "delivered"
 public let kREAD = "read"
 public let kREADDATE = "readDate"
 public let kDELETED = "deleted"
 
-
-
 //push
 public let kDEVICEID = "deviceId"
 
-
-
 //Call
-
 public let kISINCOMING = "isIncoming"
 public let kCALLERID = "callerId"
 public let kCALLERFULLNAME = "callerFullName"
