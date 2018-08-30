@@ -10,6 +10,7 @@
 		41D240ED21361E8500B59941 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D240EC21361E8500B59941 /* ChatViewController.swift */; };
 		41D240EF213645A900B59941 /* OutgoingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D240EE213645A900B59941 /* OutgoingMessages.swift */; };
 		41D240F12136515100B59941 /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D240F02136515100B59941 /* IncomingMessages.swift */; };
+		41DCBD9821381A5500E103EF /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DCBD9721381A5500E103EF /* VideoMessage.swift */; };
 		41DFE26D2134956500216F6B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DFE26C2134956500216F6B /* SettingsTableViewController.swift */; };
 		41DFE26F21349AE900216F6B /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DFE26E21349AE900216F6B /* UserTableViewCell.swift */; };
 		41DFE2722134A0D600216F6B /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DFE2712134A0D600216F6B /* UsersTableViewController.swift */; };
@@ -40,6 +41,7 @@
 		41D240EC21361E8500B59941 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		41D240EE213645A900B59941 /* OutgoingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessages.swift; sourceTree = "<group>"; };
 		41D240F02136515100B59941 /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
+		41DCBD9721381A5500E103EF /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
 		41DFE26C2134956500216F6B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		41DFE26E21349AE900216F6B /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		41DFE2712134A0D600216F6B /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				41EF28D2212BE34400FE33DF /* FUser.swift */,
 				41DFE2772134DAEA00216F6B /* Recent.swift */,
 				41E0CEEF2137BB4C00F8E3CA /* PhotoMediaItem.swift */,
+				41DCBD9721381A5500E103EF /* VideoMessage.swift */,
 				41D240EE213645A900B59941 /* OutgoingMessages.swift */,
 				41D240F02136515100B59941 /* IncomingMessages.swift */,
 			);
@@ -342,6 +345,7 @@
 				41DFE2782134DAEA00216F6B /* Recent.swift in Sources */,
 				41DFE26F21349AE900216F6B /* UserTableViewCell.swift in Sources */,
 				41EF28D3212BE34400FE33DF /* FUser.swift in Sources */,
+				41DCBD9821381A5500E103EF /* VideoMessage.swift in Sources */,
 				41E0CEF02137BB4C00F8E3CA /* PhotoMediaItem.swift in Sources */,
 				41D240F12136515100B59941 /* IncomingMessages.swift in Sources */,
 				41DFE27A2134EC6900216F6B /* RecentChatTableViewCell.swift in Sources */,

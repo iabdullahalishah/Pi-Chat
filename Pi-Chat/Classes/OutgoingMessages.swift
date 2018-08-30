@@ -19,6 +19,13 @@ class OutgoingMessages {
         messageDictionary = NSMutableDictionary(objects: [message, pictureLink, SenderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying, kPICTURE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying,kSTATUS as NSCopying, kTYPE as NSCopying])
     }
     
+    //for video
+    init(message: String, videoLink: String, thumbNail: NSData, SenderId: String, senderName: String, date: Date, status: String, type: String){
+        let videoThumb = thumbNail.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        
+        messageDictionary = NSMutableDictionary(objects: [message, videoLink, videoThumb, SenderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying, kVIDEO as NSCopying, kPICTURE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying,kSTATUS as NSCopying, kTYPE as NSCopying])
+    }
+    
     //MARK: Send Message
     func sendMessage(chatRoomID: String, messageDictionary: NSMutableDictionary, memberIDs: [String], membersToPush: [String]){
         let messageId = UUID().uuidString

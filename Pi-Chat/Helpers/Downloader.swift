@@ -74,6 +74,49 @@ func downloadImage(imageURL: String, completion: @escaping(_ image: UIImage?) ->
     }
 }
 
+//MARK: Video Section
+func uploadVideo(video: NSData, chatRoomId: String, view: UIView, completion: @escaping(_ videoLink: String?) ->Void){
+    let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
+    progressHUD.mode = .determinateHorizontalBar
+    let dateString = dateFormatter().string(from: Date())
+    let videoFileName = "VideoMessages/" + FUser.currentId() + "/" + chatRoomId + "/" + dateString + ".mov"
+    let storageRef = storage.reference(forURL: kFILEREFERENCE).child(videoFileName)
+    var task: StorageUploadTask!
+    task = storageRef.putData(video as Data, metadata: nil, completion: { (metadata, error) in
+        task.removeAllObservers()
+        progressHUD.hide(animated: true)
+        if error != nil {
+            print("Could upload video")
+            return
+        }
+        storageRef.downloadURL(completion: { (url, error) in
+        guard let downloadUrl = url else { completion(nil); return }
+        completion(downloadUrl.absoluteString)
+            
+        })
+    })
+    task.observe(StorageTaskStatus.progress) { (snapshot) in
+        progressHUD.progress = Float((snapshot.progress?.completedUnitCount)!) / Float((snapshot.progress?.totalUnitCount)!)
+    }
+}
+
+func videoThumbNail(video: NSURL) -> UIImage {
+    let asset = AVURLAsset(url: video as URL, options: nil)
+    let imageGenerator = AVAssetImageGenerator(asset: asset)
+    imageGenerator.appliesPreferredTrackTransform = true
+    let time = CMTimeMakeWithSeconds(0.5, 1000)
+    var actualTime = kCMTimeZero
+    var image: CGImage?
+    do {
+        image = try imageGenerator.copyCGImage(at: time, actualTime: &actualTime)
+    }
+    catch let error as NSError {
+        print(error.localizedDescription)
+    }
+    let thumbNail = UIImage(cgImage: image!)
+    return thumbNail
+}
+
 func fileInDocumentsDirectory(filename: String) -> String {
     let fileUrl = getDocumentsUrl().appendingPathComponent(filename)
     return fileUrl.path
@@ -96,4 +139,28 @@ func fileExistsAtPath(path: String) -> Bool {
     return doesexist
 }
 
-
+func downloadVideo(videoURL: String, completion: @escaping(_ isReadyToPlay: Bool,_ videoFileName: String) -> Void) {
+    let videoUrl = NSURL(string: videoURL)
+    let videoFileName = (videoURL.components(separatedBy: "%").last!).components(separatedBy: "?").first!
+    if fileExistsAtPath(path: videoFileName){
+        completion(true, videoFileName)
+    } else {
+        //doesnt exist on phone
+        let downloadQue = DispatchQueue(label: "videoDownloadQueue")
+        downloadQue.async {
+            let data = NSData(contentsOf: videoUrl! as URL)
+            if data != nil {
+                var docURL = getDocumentsUrl()
+                docURL = docURL.appendingPathComponent(videoFileName, isDirectory: false)
+                data!.write(to: docURL, atomically: true)
+                DispatchQueue.main.async {
+                    completion(true, videoFileName)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    print(" No image in phone")
+                }
+            }
+        }
+    }
+}
