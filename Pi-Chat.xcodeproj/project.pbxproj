@@ -21,6 +21,8 @@
 		41E0CEEC2137A1D500F8E3CA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E0CEEB2137A1D500F8E3CA /* Camera.swift */; };
 		41E0CEEE2137AA2800F8E3CA /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E0CEED2137AA2800F8E3CA /* Downloader.swift */; };
 		41E0CEF02137BB4C00F8E3CA /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E0CEEF2137BB4C00F8E3CA /* PhotoMediaItem.swift */; };
+		41E2593F2138D3D60069A9CF /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2593E2138D3D60069A9CF /* AudioViewController.swift */; };
+		41E259412138E90C0069A9CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E259402138E90C0069A9CF /* MapViewController.swift */; };
 		41EF28B9212BD42600FE33DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EF28B8212BD42600FE33DF /* AppDelegate.swift */; };
 		41EF28BE212BD42600FE33DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41EF28BC212BD42600FE33DF /* Main.storyboard */; };
 		41EF28C0212BD42700FE33DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41EF28BF212BD42700FE33DF /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		41E0CEEB2137A1D500F8E3CA /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		41E0CEED2137AA2800F8E3CA /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		41E0CEEF2137BB4C00F8E3CA /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
+		41E2593E2138D3D60069A9CF /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		41E259402138E90C0069A9CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		41EF28B5212BD42600FE33DF /* Pi-Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pi-Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41EF28B8212BD42600FE33DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41EF28BD212BD42600FE33DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				41D240EC21361E8500B59941 /* ChatViewController.swift */,
 				41DFE2732134A99000216F6B /* ChatsViewController.swift */,
 				41DFE2752134C0C100216F6B /* ProfileTableViewController.swift */,
+				41E259402138E90C0069A9CF /* MapViewController.swift */,
 				41DFE2702134A0A600216F6B /* Custom Cells */,
 				41EF28DD212BFC8500FE33DF /* Classes */,
 				41EF28DC212BFC6700FE33DF /* Helpers */,
@@ -166,6 +171,7 @@
 				41DFE2772134DAEA00216F6B /* Recent.swift */,
 				41E0CEEF2137BB4C00F8E3CA /* PhotoMediaItem.swift */,
 				41DCBD9721381A5500E103EF /* VideoMessage.swift */,
+				41E2593E2138D3D60069A9CF /* AudioViewController.swift */,
 				41D240EE213645A900B59941 /* OutgoingMessages.swift */,
 				41D240F02136515100B59941 /* IncomingMessages.swift */,
 			);
@@ -350,6 +356,7 @@
 				41D240F12136515100B59941 /* IncomingMessages.swift in Sources */,
 				41DFE27A2134EC6900216F6B /* RecentChatTableViewCell.swift in Sources */,
 				41D240EF213645A900B59941 /* OutgoingMessages.swift in Sources */,
+				41E259412138E90C0069A9CF /* MapViewController.swift in Sources */,
 				41EF28B9212BD42600FE33DF /* AppDelegate.swift in Sources */,
 				41E0CEEC2137A1D500F8E3CA /* Camera.swift in Sources */,
 				41EF28CB212BD79D00FE33DF /* WelcomeViewController.swift in Sources */,
@@ -360,6 +367,7 @@
 				41EF28D7212BE88900FE33DF /* CollectionReference.swift in Sources */,
 				41EF28D5212BE38200FE33DF /* Constants.swift in Sources */,
 				41DFE2722134A0D600216F6B /* UsersTableViewController.swift in Sources */,
+				41E2593F2138D3D60069A9CF /* AudioViewController.swift in Sources */,
 				41D240ED21361E8500B59941 /* ChatViewController.swift in Sources */,
 				41EF28D9212BE91500FE33DF /* HelperFunctions.swift in Sources */,
 			);

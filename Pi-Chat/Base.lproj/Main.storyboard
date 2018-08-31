@@ -697,6 +697,35 @@
             </objects>
             <point key="canvasLocation" x="6693.6000000000004" y="-185.75712143928038"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="AiP-KU-FSO">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="gIO-Rr-gDH" customClass="MapViewController" customModule="Pi_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hrr-AK-Nx8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EZO-T1-jXn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EZO-T1-jXn" firstAttribute="top" secondItem="hrr-AK-Nx8" secondAttribute="top" id="5ff-ac-qCr"/>
+                            <constraint firstItem="EZO-T1-jXn" firstAttribute="leading" secondItem="tbG-jq-hTx" secondAttribute="leading" id="R61-fQ-oiF"/>
+                            <constraint firstItem="EZO-T1-jXn" firstAttribute="trailing" secondItem="tbG-jq-hTx" secondAttribute="trailing" id="YuU-G2-xgf"/>
+                            <constraint firstItem="EZO-T1-jXn" firstAttribute="bottom" secondItem="tbG-jq-hTx" secondAttribute="bottom" id="gBZ-LN-5ff"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tbG-jq-hTx"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="EZO-T1-jXn" id="PRh-ay-7m5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUk-RS-sDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7524" y="-179.46026986506749"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="1lF-yf-2jW">
             <objects>

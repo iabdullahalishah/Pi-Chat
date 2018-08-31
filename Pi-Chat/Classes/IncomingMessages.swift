@@ -25,17 +25,14 @@ class IncomingMessages {
         switch type {
         case kTEXT:
             message = createTextMessage(messageDictionary: messageDictionary, chatRoomId: chatRoomId)
-            print("Unknown message type")
         case kPICTURE:
-            print("Unknown message type")
             message = createPictureMessage(messageDictionary: messageDictionary)
         case kVIDEO:
-            print("Unknown message type")
             message = createVideoMessage(messageDictionary: messageDictionary)
         case kAUDIO:
-            print("Unknown message type")
+            message = createAudioMessage(messageDictionary: messageDictionary)
         case kLOCATION:
-            print("Unknown message type")
+            message = createLocationMessage(messageDictionary: messageDictionary)
         default:
             print("Unknown message type")
         }
@@ -131,6 +128,57 @@ class IncomingMessages {
         }*/
         // same as above
         return senderId == FUser.currentId()
+    }
+    
+    func createAudioMessage(messageDictionary: NSDictionary) -> JSQMessage {
+        
+        let name = messageDictionary[kSENDERNAME] as? String
+        let userId = messageDictionary[kSENDERID] as? String
+        var date: Date!
+        if let created = messageDictionary[kDATE]{
+            if (created as! String).count != 14 {
+                date = Date()
+            } else {
+                date = dateFormatter().date(from: created as! String)
+            }
+        } else {
+            date = Date()
+        }
+        let audioItem = JSQAudioMediaItem(data: nil)
+        audioItem.appliesMediaViewMaskAsOutgoing = returnOutgoingStatusForUser(senderId: userId!)
+        let audioMessage = JSQMessage(senderId: userId!, displayName: name!, media: audioItem)
+        downloadAudio(audioURL: messageDictionary[kAUDIO] as! String) { (fileName) in
+            let url = NSURL(fileURLWithPath: fileInDocumentsDirectory(filename: fileName))
+            let audioData = try? Data(contentsOf: url as URL)
+            audioItem.audioData = audioData
+            self.collectionView.reloadData()
+        }
+        return  audioMessage!
+    }
+    
+    func createLocationMessage(messageDictionary: NSDictionary) -> JSQMessage {
+        let name = messageDictionary[kSENDERNAME] as? String
+        let userId = messageDictionary[kSENDERID] as? String
+        var date: Date!
+        if let created = messageDictionary[kDATE]{
+            if (created as! String).count != 14 {
+                date = Date()
+            } else {
+                date = dateFormatter().date(from: created as! String)
+            }
+        } else {
+            date = Date()
+        }
+        let text = messageDictionary[kMESSAGE] as! String
+        let lat = messageDictionary[kLATITUDE] as? Double
+        let long = messageDictionary[kLONGITUDE] as? Double
+        let mediaItem = JSQLocationMediaItem(location: nil)
+        mediaItem?.appliesMediaViewMaskAsOutgoing = returnOutgoingStatusForUser(senderId: userId!)
+        let location = CLLocation(latitude: lat!, longitude: long!)
+        mediaItem?.setLocation(location, withCompletionHandler: {
+            self.collectionView.reloadData()
+        })
+        return JSQMessage(senderId: userId, senderDisplayName: name, date: date, media: mediaItem)
     }
     
 }
